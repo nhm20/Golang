@@ -32,6 +32,13 @@ func tasks(done chan bool) {
 	fmt.Println("Task is done")
 }
 
+func emailSender(emailChan chan string) {
+
+	for email := range emailChan { // Receive emails from the channel until it's closed
+		fmt.Println("Sending email to:", email) // Process the email
+	}
+}
+
 // sending and receiving are blocking operations
 func main() {
 
